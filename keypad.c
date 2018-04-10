@@ -213,7 +213,7 @@ uint8_t KEYPAD_GetKey()
 	case 0xde: var_keyPress_u8='2'; break;
 	case 0xb7: var_keyPress_u8='#'; break;
 	case 0xbb: var_keyPress_u8='9'; break;
-	case 0xbd: var_keyPress_u8='4'; break;
+	case 0xbd: var_keyPress_u8='6'; break;
 	case 0xbe: var_keyPress_u8='3'; break;
 	case 0x77: var_keyPress_u8='D'; break;
 	case 0x7b: var_keyPress_u8='C'; break;

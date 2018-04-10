@@ -83,7 +83,7 @@ PreCompile configuration to enable or disable the API's.
     if required. This implies for other interfaces as well. 
  ***************************************************************************************************/
 #define    Enable_LCD_SetCursor              0
-#define    Enable_LCD_DisplayString          0
+#define    Enable_LCD_DisplayString          1
 #define    Enable_LCD_ScrollMessage          0
 #define    Enable_LCD_DisplayDecimalNumber   0
 #define    Enable_LCD_DisplayHexNumber       0
