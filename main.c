@@ -1,10 +1,9 @@
-/*-----------------------------------------------------------------------------
-                    Program to demonstrate 4*4-Matrix Keypad
-  -----------------------------------------------------------------------------
-  note:
-  1.Refer lcd.c(lcd_4_bit.c/lcd_8_bit.c) file for Pin connections
-  2.Refer keypad.c for Keypad(Row/Col) connections.
-------------------------------------------------------------------------------*/
+/*
+ * File:   main.c
+ * Author: Pablo Salgado
+ *
+ * Created on April 5, 2018, 4:20 AM
+ */
 
 #include <xc.h>
 #include <stdint.h>
@@ -57,16 +56,26 @@ int  main()
     KEYPAD_Init();
         
     /* Desplegar nombre del curso y grupo*/
-    LCD_DisplayString("Micros grupo 26");        
+    LCD_DisplayString("Micros grupo 26");
+    __delay_ms(2000);
     
     /* Ciclo infinito para leer el número de cédula y buscar*/
 	while(1)
 	{
+        LCD_Clear();
+        LCD_DisplayString("Cédula:");
+        LCD_GoToNextLine();
+
         leer_cedula();
 
+        __delay_ms(2000);
+        LCD_Clear();
+        LCD_DisplayString("Buscando ...");
         LCD_GoToNextLine();
         
-        buscar_cedula();        
+        buscar_cedula();
+        
+        __delay_ms(2000);
 	}
 
 	return 0;
@@ -113,7 +122,7 @@ int buscar_cedula() {
     for (i = 0; i < 5; i++) {
         
         /* 
-         * Se cuenta en la variable k, cada caracter coincidente encontrado en 
+         * Se cuenta en la variable k, cada carácter coincidente encontrado en 
          * la fila actual de  números de cédula con el número de cédula digitado
          */
         k = 0;
@@ -138,7 +147,7 @@ int buscar_cedula() {
     
     if(8 == k) {
         /* 
-         * Si se encontró un número de cedula, la variable i indica en que fila 
+         * Si se encontró un número de cédula, la variable i indica en que fila 
          * del arreglo de nombres está el nombre de la persona. Se despliega el
          * nombre.
          */
